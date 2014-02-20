@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
-gem 'haml'
+gem 'haml-rails'
 
 group :test, :development do
   gem 'rspec-rails'
