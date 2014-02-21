@@ -19,6 +19,8 @@ gem 'haml-rails'
 group :test, :development do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'jazz_hands'
 end
 
 group :test do
