@@ -14,7 +14,7 @@ $(function() {
     $.ajax({
       type: 'GET',
       dataType: 'json',
-      url: 'http://localhost:5000/api/v1/gauges',
+      url: '/api/v1/gauges',
       success: callback
     });
   };
