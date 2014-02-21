@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'haml-rails'
 
 group :test, :development do
+  gem 'pry'
   gem 'rspec-rails'
 end
 
