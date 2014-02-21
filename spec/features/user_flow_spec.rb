@@ -26,4 +26,16 @@ describe "A visitor" do
     click_on "Login now!"
     expect(page).to have_text("Welcome back, example@example.com!")
   end
+
+  it "can log out" do
+    visit "/"
+    click_on "Login"
+    expect(page).to have_text("Login to your account")
+    fill_in "Email", with: "example@example.com"
+    fill_in "Password", with: "1234555"
+    click_on "Login now!"
+    expect(page).to have_text("Welcome back, example@example.com!")
+    click_on "Logout"
+    expect(page).to have_text("Logged out!")
+  end
 end
