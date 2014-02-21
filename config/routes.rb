@@ -7,4 +7,10 @@ Riverrat::Application.routes.draw do
   resources :sessions
 
   root "pages#home"
+
+  namespace :api do
+    namespace :v1 do
+      resources :gauges, only: [:index]
+    end
+  end
  end
