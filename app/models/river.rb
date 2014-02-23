@@ -1,11 +1,7 @@
-class River
+class River < ActiveResource::Base
 
-  attr_reader :id, :name, :state
+  has_many :runs
 
-  def initialize(params)
-    @id = params["river_id"]
-    @name = params["name"]
-    @state = params["state"]
-  end
+  self.site = "http://localhost:5555/api/v1/"
 
 end
