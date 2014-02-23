@@ -1,6 +1,6 @@
 class Run < ActiveResource::Base
 
-  self.site = "http://localhost:5555/api/v1/"
+  self.site = Rails.configuration.api_base_url + "/api/v1/"
 
   self.prefix = "/api/v1/rivers/:river_id/"
 
