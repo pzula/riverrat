@@ -8,6 +8,13 @@
   padding:0;
 }
 
+.wrapper {
+  height:100%;
+  overflow:hidden;
+  position: absolute;
+  width:100%;
+}
+
 #map {
   position:absolute;
   top:0;
@@ -15,7 +22,21 @@
   width:70%;
   float:left;
 }
+
 #sidebar {
   width: 30%;
   float:right;
+  height:90%;
+  overflow-x: auto;
+  overflow-y: auto;
 }
+
+  ul.rivers {
+    list-style:none;
+    li {
+      margin:0;
+      padding:0;
+    }
+  }
+
+
