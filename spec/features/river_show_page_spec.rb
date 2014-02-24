@@ -38,7 +38,4 @@ describe "river show page" do
     expect(page).to_not have_content("small flip")
   end
 
-  it "displays the associated gauges for each run" do
-    expect(page).to have_content("13")
-  end
 end

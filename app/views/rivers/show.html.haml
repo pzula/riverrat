@@ -1,13 +1,12 @@
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+
 %h1
   = @river.name
 
 %ul
   = render collection: @runs, partial: 'run'
 
-- @gauges.each do |gauge|
-  %li
-    = gauge.geometry.coordinates
-
 %div{:class => "wrapper"}
   %div{:class => "map-body"}
-    #river-map-show{ data: { gauges: @gauges.to_json } }
+    #map{ data: { run_ids: @run_ids } }
