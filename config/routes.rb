@@ -8,6 +8,8 @@ Riverrat::Application.routes.draw do
 
   root "pages#home"
 
+  resources :rivers, only: [:show]
+
   namespace :api do
     namespace :v1 do
       resources :gauges, only: [:index]
