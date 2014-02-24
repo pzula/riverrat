@@ -7,10 +7,17 @@ describe "Gauges API" do
   end
 
   describe "GET /api/v1/gauges" do
-    it "returns all the gauges in valid geo_json" do
+    before :each do
       file_path = File.expand_path('../../data/gauge_geojson', __FILE__)
-      mock_gauges = File.read(file_path)
-      Gauge.stub(:all_gauges_in_geojson).and_return(JSON.parse(mock_gauges))
+      @gauges = File.read(file_path)
+
+      ActiveResource::HttpMock.respond_to do |mock|
+        mock.get "/api/v1/gauges.json", {}, @gauges
+      end
+    end
+
+    it "returns all the gauges in valid geo_json" do
+
 
       get "/api/v1/gauges", {}, @accept_format
 
