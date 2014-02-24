@@ -3,3 +3,11 @@
 
 %ul
   = render collection: @runs, partial: 'run'
+
+- @gauges.each do |gauge|
+  %li
+    = gauge.geometry.coordinates
+
+%div{:class => "wrapper"}
+  %div{:class => "map-body"}
+    #river-map-show{ data: { gauges: @gauges.to_json } }
