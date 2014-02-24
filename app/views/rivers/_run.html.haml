@@ -1,3 +1,6 @@
 - @runs.each do |run|
   %li
     = run.name
+    %li
+      - Gauge.find(:all, :params => {'run_id' => run.id}).each do |gauge|
+        = gauge.geometry.coordinates

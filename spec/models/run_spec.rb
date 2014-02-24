@@ -7,9 +7,11 @@ describe Run do
     }.to_json
     @runs = {:runs => [
       {:name => "Soot",
-       :river_id => 1},
+       :river_id => 1,
+       :id => 2},
       {:name => "Ash",
-       :river_id => 1}
+       :river_id => 1,
+       :id => 3}
     ]
     }.to_json
     @run = {:run => {:name => "Big Run",
