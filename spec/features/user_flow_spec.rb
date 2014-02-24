@@ -4,6 +4,16 @@ describe "A visitor" do
 
   before :each do
     FactoryGirl.create(:user)
+    @rivers = {"rivers" => [
+      {"name" => "Black River",
+       "id" => 1},
+       {"name" => "Hawk River",
+        "id" => 2}
+    ]
+    }.to_json
+    ActiveResource::HttpMock.respond_to do |mock|
+      mock.get "/api/v1/rivers.json", {}, @rivers
+    end
   end
 
   it "can sign up" do
