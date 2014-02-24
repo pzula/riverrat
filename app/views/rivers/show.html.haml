@@ -1,2 +1,5 @@
 %h1
   = @river.name
+
+%ul
+  = render collection: @runs, partial: 'run'
