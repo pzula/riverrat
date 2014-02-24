@@ -8,19 +8,27 @@ describe "river show page" do
     @run1 =
       {:runs => [
         {:river_id => 1, :name => "big drop", :id => 1},
-        {:river_id => 1, :name => "small flip", :id => 2},
+        {:river_id => 2, :name => "small flip", :id => 2},
     ]}.to_json
     @gauges1 = {:gauges => [
-      {:coordinates => ["3", "4"],
+      {:geometry => {
+        :coordinates => ["10", "11"]
+        },
        :run_id => 1},
-      {:coordinates => ["4", "5"],
+      {:geometry => {
+          :coordinates => ["12", "13"]
+        },
        :run_id => 1}
     ]
     }.to_json
     @gauges2 = {:gauges => [
-      {:coordinates => ["1","2"],
+      {:geometry => {
+        :coordinates => ["1","2"]
+        },
        :run_id => 2},
-      {:coorindates => ["2", "3"],
+      {:geometry => {
+          :coordinates => ["2", "3"]
+        },
        :run_id => 2}
     ]
     }.to_json
@@ -39,10 +47,11 @@ describe "river show page" do
 
   it "displays the river's runs" do
     expect(page).to have_content("big drop")
-    expect(page).to have_content("small flip")
+    expect(page).to_not have_content("small flip")
   end
 
   it "displays the associated gauges for each run" do
-    expect(page).to have_content("Medium")
+    expect(page).to have_content("13")
+    expect(page).to_not have_content("2")
   end
 end
