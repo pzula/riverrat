@@ -1,7 +1,7 @@
 class Api::V1::GaugesController < ApplicationController
 
   def index
-    gauges = Gauge.all_gauges_in_geojson
+    gauges = Gauge.all
     render json: gauges
   end
 
