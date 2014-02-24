@@ -1,5 +1,10 @@
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
 
-%div{:class => "map-body"}
-  %div{:id => "map"}
+%div{:class => "wrapper"}
+  %div{:class => "map-body"}
+    %div{:id => "map"}
+  %div{:id => "sidebar"}
+    %h2
+      Rivers Near You
+    %ul.rivers= render collection: @rivers, partial: "rivers"
