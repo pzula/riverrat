@@ -1,2 +1,2 @@
 - @rivers.each do |river|
-  %link_to river_path(river.id)
+  = link_to "#{river.name}", river_path(river.id)
