@@ -5,15 +5,37 @@ describe "river show page" do
   before :each do
     @river = {:river => {:name => "Black River",
                          :id => 1}}.to_json
+    @run1 =
+      {:runs => [
+        {:river_id => 1, :name => "big drop", :id => 1},
+       ]
+    }.to_json
+    @gauges1 = {:gauges => [
+      {:geometry => {
+        :coordinates => ["10", "11"]
+        },
+       :run_id => 1},
+      {:geometry => {
+          :coordinates => ["12", "13"]
+        },
+       :run_id => 1}
+    ]
+    }.to_json
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/v1/rivers/1.json", {}, @river
+      mock.get "/api/v1/rivers/1/runs.json", {}, @run1
+      mock.get "/api/v1/gauges.json?run_id=1", {}, @gauges1
     end
-    @river1 = River.find(1)
+    visit "/rivers/1"
   end
 
   it "displays the river's name" do
-    visit "/rivers/#{@river1.id}"
-    expect(page).to have_content(@river1.name)
+    expect(page).to have_content("Black River")
+  end
+
+  it "displays the river's runs" do
+    expect(page).to have_content("big drop")
+    expect(page).to_not have_content("small flip")
   end
 
 end

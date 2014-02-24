@@ -1,2 +1,12 @@
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+
 %h1
   = @river.name
+
+%ul
+  = render collection: @runs, partial: 'run'
+
+%div{:class => "wrapper"}
+  %div{:class => "map-body"}
+    #map{ data: { run_ids: @run_ids } }
