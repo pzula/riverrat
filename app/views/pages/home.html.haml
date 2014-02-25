@@ -7,6 +7,12 @@
   %div{:id => "sidebar"}
     %h2{:class => 'user-favorites'}
       Your Favorite Rivers
+      %ul.favorite-rivers
+        - @favorite_rivers.each do |river|
+          = river.name
+
+        - if false
+          = render collection: @rivers, partial: "rivers/rivers"
     %h2
       Rivers Near You
 

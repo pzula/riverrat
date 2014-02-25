@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Favorite do
-  pending "add some examples to (or delete) #{__FILE__}"
+  xit "does not create duplicate favorites" do
+  end
 end
