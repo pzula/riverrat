@@ -1,5 +1,5 @@
 %header
-  = image_tag 'river_rat_logo.png', {:class => "logo"}
+  = link_to image_tag('river_rat_logo.png'), root_path, {:class => "logo"}
   %div.account
     - if current_user
       %p Logged in as

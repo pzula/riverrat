@@ -14,7 +14,24 @@
 
 header {
   overflow:hidden;
+  background: image-url('river-rat-waves.png') repeat-x;
+  position: absolute;
+  top:0;
+  left:0;
+  height:157px;
+  width:100%;
+  z-index:999;
 }
+
+
+.wrapper {
+  height:100%;
+  overflow:hidden;
+  position: absolute;
+  width:100%;
+  top:110px;
+}
+
 
 div.account {
   float:right;
@@ -22,12 +39,11 @@ div.account {
   margin-right:10px;
 }
 
-img.logo {
+a.logo {
   float:left;
   margin-left:10px;
   width:300px;
 }
-
 
 .button {
    border-top: 1px solid #96d1f8;

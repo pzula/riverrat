@@ -5,10 +5,12 @@ $(function() {
   Map.defaultZoom = 9;
 
   Map.plotGauges = function(geojson) {
-    L.mapbox.map('map', 'srtsrt32.haldb884')
-      .setView([Map.defaultLat, Map.defaultLong], Map.defaultZoom)
-      .featureLayer.setGeoJSON(geojson);
+    var map = L.mapbox.map('map', 'srtsrt32.haldb884', {zoomControl: false})
+      .setView([Map.defaultLat, Map.defaultLong], Map.defaultZoom);
+      new L.Control.Zoom({position: 'topright'}).addTo(map);
+      map.featureLayer.setGeoJSON(geojson);
   };
+
 
   Map.fetchGauges = function(callback) {
     var run_ids = $('#map').data('run_ids')
