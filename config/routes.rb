@@ -8,7 +8,9 @@ Riverrat::Application.routes.draw do
 
   root "pages#home"
 
-  resources :rivers, only: [:show]
+  resources :rivers, only: [:show] do
+    resources :favorites, only: [:create]
+  end
 
   namespace :api do
     namespace :v1 do

@@ -3,4 +3,4 @@
     = link_to "#{river.name}", river_path(river.id)
     %div{:class => 'river-favorite'}
       - if current_user
-        = link_to "Favorite"
+        = link_to "Favorite", river_favorites_path(river.id), method: :post
