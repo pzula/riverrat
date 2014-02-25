@@ -1,24 +1,26 @@
-%h1 Sign up
-= form_for @user, :id => 'signup' do |f|
-  - if @user.errors.any?
-    %div.error_messages
-      %h2
-        Form is invalid
-        %ul
-          = @user.errors.full_messages.each do |message|
-            %li
-              = message
-  %div.field
-    = f.label :email
-    = f.text_field :email
+%div{:class => "wrapper"}
+  %div{:class => "inner-wrapper"}
+    = form_for @user, :id => 'signup' do |f|
+      - if @user.errors.any?
+        %div.error_messages
+          %h2
+            Form is invalid
+            %ul
+              = @user.errors.full_messages.each do |message|
+                %li
+                  = message
+      %h1 Sign up
+      %div.field
+        = f.label :email
+        = f.text_field :email
 
-  %div.field
-    = f.label :password
-    = f.password_field :password
+      %div.field
+        = f.label :password
+        = f.password_field :password
 
-  %div.field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
+      %div.field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
 
-  %div.field
-    = f.submit "Create my account!"
+      %div.field
+        = f.submit "Create my account!", :class => "button"

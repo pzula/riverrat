@@ -1,13 +1,15 @@
-%h1 Login to your account
-= form_tag sessions_path do
-  %div.field
-    = label_tag :email
-    = text_field_tag :email, params[:email]
+%div{:class => "wrapper"}
+  %div{:class => "inner-wrapper"}
+    = form_tag sessions_path do
+      %h1 Login to your account
+      %div.field
+        = label_tag :email
+        = text_field_tag :email, params[:email]
 
-  %div.field
-    = label_tag :password
-    = password_field_tag :password
+      %div.field
+        = label_tag :password
+        = password_field_tag :password
 
-  %div.actions
-    = submit_tag "Login now!"
+      %div.actions
+        = submit_tag "Login now!", :class => "button"
 
