@@ -1,3 +1,6 @@
 - @rivers.each do |river|
   %li
     = link_to "#{river.name}", river_path(river.id)
+    %div{:class => 'river-favorite'}
+      - if current_user
+        = link_to "Favorite"
