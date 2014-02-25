@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @rivers = River.all
+    @gauges = Gauge.all.to_json
     @favorite_rivers = []
     if current_user
       favorite_river_ids = current_user.favorites.map(&:river_id)
