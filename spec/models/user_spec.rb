@@ -17,10 +17,12 @@ describe User do
   end
 
   describe "favorites" do
-    email = "foo@example.com"
-    user = User.find_by(:email => email) || FactoryGirl.create(:user, :email => email)
-    FactoryGirl.create(:favorite, :user_id => user.id, :river_id => 1)
-    (user.favorites.first).should be_kind_of(Favorite)
+    it "returns the user's favorites" do
+      email = "foo@example.com"
+      user = User.find_by(:email => email) || FactoryGirl.create(:user, :email => email)
+      FactoryGirl.create(:favorite, :user_id => user.id, :river_id => 1)
+      expect(user.favorites.first.river_id).to eq(1)
+    end
   end
 
 end
