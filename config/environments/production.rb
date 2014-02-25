@@ -1,5 +1,5 @@
 Riverrat::Application.configure do
-  config.api_base_url = 'ADD_HEROKU_URL_HERE'
+  config.api_base_url = 'http://floatilla.herokuapp.com/'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
