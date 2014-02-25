@@ -6,10 +6,11 @@
     %div{:id => "map"}
   %div{:id => "sidebar"}
     %h2{:class => 'user-favorites'}
-      Your Favorite Rivers
-      %ul.favorite-rivers
-        - @favorite_rivers.each do |river|
-          = river.name
+      - if current_user
+        Your Favorite Rivers
+        %ul.favorite-rivers
+          - @favorite_rivers.each do |river|
+            = river.name
 
     %h2
       Rivers Near You
