@@ -9,8 +9,20 @@ describe "favoriting on homepage" do
          :id => 1}
       ]
     }.to_json
+    @gauges = {:gauges => [
+      {:geometry => {
+        :coordinates => ["10", "11"]
+        },
+       :run_id => 1},
+      {:geometry => {
+          :coordinates => ["12", "13"]
+        },
+       :run_id => 1}
+    ]
+    }.to_json
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/v1/rivers.json", {}, @rivers
+      mock.get "/api/v1/gauges.json", {}, @gauges
     end
   end
 
