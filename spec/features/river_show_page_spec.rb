@@ -24,7 +24,6 @@ describe "river show page" do
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/v1/rivers/1.json", {}, @river
       mock.get "/api/v1/rivers/1/runs.json", {}, @run1
-      mock.get "/api/v1/gauges.json?run_id=1", {}, @gauges1
     end
     visit "/rivers/1"
   end
