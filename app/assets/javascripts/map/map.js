@@ -14,12 +14,8 @@ $(function() {
 
   Map.fetchGauges = function(callback) {
     var run_ids = $('#map').data('run_ids')
-    $.ajax({
-      type: 'GET',
-      dataType: 'json',
-      url: '/api/v1/gauges' + '?=' + run_ids,
-      success: callback
-    });
+    var gauges = $('#map').data('gauges')
+    Map.plotGauges(gauges);
   };
 
   Map.fetchGauges(Map.plotGauges);
