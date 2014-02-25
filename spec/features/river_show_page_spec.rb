@@ -10,7 +10,7 @@ describe "river show page" do
         {:river_id => 1, :name => "big drop", :id => 1},
        ]
     }.to_json
-    @gauges1 = {:gauges => [
+    @gauges = {:gauges => [
       {:geometry => {
         :coordinates => ["10", "11"]
         },
@@ -24,6 +24,8 @@ describe "river show page" do
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/v1/rivers/1.json", {}, @river
       mock.get "/api/v1/rivers/1/runs.json", {}, @run1
+      mock.get "/api/v1/gauges.json", {}, @gauges
+      mock.get "/api/v1/gauges.json?run_id=1", {}, @gauges
     end
     visit "/rivers/1"
   end
