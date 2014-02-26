@@ -1,0 +1,3 @@
+= favorite_river.name
+%div{:class => 'remove-favorite'}
+  = button_to 'X', river_favorites_path(favorite_river.id), method: :delete
