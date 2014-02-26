@@ -8,11 +8,7 @@
     %h2{:class => 'user-favorites'}
       - if current_user
         Your Favorite Rivers
-        %ul.favorite-rivers
-          - @favorite_rivers.each do |river|
-            = river.name
-            %div{:class => 'remove-favorite'}
-              = button_to 'X', river_favorites_path(river.id), method: :delete
+    %ul.favorite-rivers= render collection: @favorite_rivers, partial: 'rivers/favorite_river'
 
     %h2
       Rivers Near You

@@ -23,6 +23,19 @@ header {
   z-index:999;
 }
 
+p.logged-in {
+  display:block;
+  font-weight:bold;
+  margin:0
+}
+
+header.button {
+  float:right;
+}
+
+.logout {
+  float:right;
+}
 
 .wrapper {
   height:100%;
