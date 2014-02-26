@@ -25,6 +25,10 @@ group :test, :development do
   gem 'jazz_hands'
 end
 
+group :development do
+  gem 'newrelic_rpm'
+end
+
 group :production do
   gem 'rails_12factor'
 end
