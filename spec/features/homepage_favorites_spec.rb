@@ -51,10 +51,15 @@ describe "favoriting on homepage" do
   end
 
   describe "removing a favorite" do
+    before :each do
+      user = User.new(:email => "ex@example.com", :password => "foobar")
+      register_user(user)
+    end
+
     it" clicking on X removes hte favorite" do
       visit '/'
       find('.river-favorite').first(:link, "Favorite").click
-      find('.remove-favorite').first(:link, 'X').click
+      find('.remove-favorite').first(:button, 'X').click
       within('.user-favorites') do
         expect(page).to_not have_content('Saco')
       end

@@ -5,4 +5,9 @@ class FavoritesController < ApplicationController
     redirect_to :back
   end
 
+  def destroy
+    current_user.favorites.find_by(:river_id => params[:river_id]).destroy
+    redirect_to :back
+  end
+
 end
