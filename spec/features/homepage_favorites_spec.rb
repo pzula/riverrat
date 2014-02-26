@@ -56,7 +56,7 @@ describe "favoriting on homepage" do
       register_user(user)
     end
 
-    it" clicking on X removes hte favorite" do
+    it" clicking on X removes the favorite" do
       visit '/'
       find('.river-favorite').first(:link, "Favorite").click
       find('.remove-favorite').first(:button, 'X').click

@@ -9,7 +9,7 @@ Riverrat::Application.routes.draw do
   root "pages#home"
 
   resources :rivers, only: [:show] do
-    match 'favorites', to: 'favorites#create', via: [:post]
+    match 'favorites', to: 'favorites#create',  via: [:post]
     match 'favorites', to: 'favorites#destroy', via: [:delete]
   end
 
