@@ -26,24 +26,37 @@ describe "favoriting on homepage" do
     end
   end
 
-  describe "for guest user" do
-    it "does not show favorite links" do
-      visit '/'
-      expect(page).to_not have_link('Favorite')
+  describe "creating a favorite" do
+    describe "for guest user" do
+      it "does not show favorite links" do
+        visit '/'
+        expect(page).to_not have_link('Favorite')
+      end
+    end
+
+    describe "for a logged in user" do
+      before :each do
+        user = User.new(:email => "ex@example.com", :password => "foobar")
+        register_user(user)
+      end
+
+      it "clicking on favorite adds the river to favorites" do
+        visit '/'
+        find('.river-favorite').first(:link, "Favorite").click
+        within('.user-favorites') do
+          expect(page).to have_content('Saco')
+        end
+      end
     end
   end
 
-  describe "for a logged in user" do
-    before :each do
-      user = User.new(:email => "ex@example.com", :password => "foobar")
-      register_user(user)
-    end
-
-    it "has a favorite button next to each river name" do
+  describe "removing a favorite" do
+    it" clicking on X removes hte favorite" do
       visit '/'
       find('.river-favorite').first(:link, "Favorite").click
+      find('.remove-favorite').first(:link, 'X').click
       within('.user-favorites') do
-        expect(page).to have_content('Saco')
+        expect(page).to_not have_content('Saco')
       end
     end
   end
