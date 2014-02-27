@@ -12,6 +12,7 @@
 
     %h2
       Rivers Near You
-      = link_to 'Next', root_path(:offset => @next_offset)
 
     %ul.rivers= render collection: @rivers, partial: "rivers/rivers"
+    %br
+    = link_to 'Next', root_path(:offset => @next_offset)

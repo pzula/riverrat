@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bcrypt-ruby'
 
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'haml-rails'
@@ -22,6 +21,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'jazz_hands'
+  gem 'launchy'
 end
 
 group :development do
