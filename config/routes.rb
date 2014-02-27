@@ -11,6 +11,7 @@ Riverrat::Application.routes.draw do
   resources :rivers, only: [:show] do
     match 'favorites', to: 'favorites#create',  via: [:post]
     match 'favorites', to: 'favorites#destroy', via: [:delete]
+    resources :runs, only: :show
   end
 
   namespace :api do
