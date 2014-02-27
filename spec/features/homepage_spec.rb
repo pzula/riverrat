@@ -14,6 +14,11 @@ describe "Homepage" do
        "id" => i+1}
     end
     @rivers_from_1 = {"rivers" => river_data}.to_json
+    river_data = 10.times.map do |i|
+      {"name" => "Brown #{i+11}",
+       "id" => i+11}
+    end
+    @rivers_from_11 = {"rivers" => river_data}.to_json
 
     @gauges = {:gauges => [
       {:geometry => {
@@ -27,8 +32,8 @@ describe "Homepage" do
     ]
     }.to_json
     ActiveResource::HttpMock.respond_to do |mock|
-      mock.get "/api/v1/rivers.json", {}, @rivers_from_1
-      #mock.get "/api/v1/rivers.json?offset=0&limit=10", {}, @rivers_from_1
+      mock.get "/api/v1/rivers.json?limit=10&offset=0", {}, @rivers_from_1
+      mock.get "/api/v1/rivers.json?limit=10&offset=10", {}, @rivers_from_11
       mock.get "/api/v1/gauges.json", {}, @gauges
     end
 

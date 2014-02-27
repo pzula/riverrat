@@ -9,6 +9,7 @@
       - if current_user
         Your Favorite Rivers
     %ul.favorite-rivers= render collection: @favorite_rivers, partial: 'rivers/favorite_river'
+    = link_to 'Next', root_path(:offset => @next_offset)
 
     %h2
       Rivers Near You

@@ -1,6 +1,5 @@
-- @rivers.each do |river|
-  %li
-    = link_to "#{river.name}", river_path(river.id)
-    %span{:class => 'river-favorite'}
-      - if current_user
-        = link_to image_tag('river-rat-star.png'), river_favorites_path(river.id), method: :post
+%li
+  = link_to "#{rivers.name}", river_path(rivers.id)
+  %span{:class => 'river-favorite'}
+    - if current_user
+      = link_to image_tag('river-rat-star.png'), river_favorites_path(rivers.id), method: :post
