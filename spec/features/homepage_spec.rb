@@ -41,13 +41,17 @@ describe "Homepage" do
       expect(page).to_not have_content("Brown 11")
     end
 
-    it "paginates 11-20 rivers when user clicks next" do
+    it "pages by 10 on clicking next and prev" do
       visit '/'
       click_on('Next')
       expect(page).to_not have_content("Brown 10")
       expect(page).to have_content("Brown 11")
       expect(page).to have_content("Brown 20")
       expect(page).to_not have_content("Brown 21")
+
+      click_on('Prev')
+      expect(page).to have_content("Brown 10")
+      expect(page).to_not have_content("Brown 11")
     end
   end
 
