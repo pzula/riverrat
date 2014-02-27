@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @rivers = River.all
+    offset = params[:offset] || 0
+    @next_offset = offset.to_i + 10
+    @rivers = River.find(:all, params: {:offset => offset, :limit => 10})
     @gauges = Gauge.all.to_json
     @favorite_rivers = []
     if current_user

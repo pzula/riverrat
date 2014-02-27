@@ -22,9 +22,16 @@ describe "A visitor" do
        :run_id => 1}
     ]
     }.to_json
+    river_data = 10.times.map do |i|
+      {"name" => "Brown #{i+1}",
+       "id" => i+1}
+    end
+    @rivers_from_1 = {"rivers" => river_data}.to_json
+
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/v1/rivers.json", {}, @rivers
       mock.get "/api/v1/gauges.json", {}, @gauges
+      mock.get "/api/v1/rivers.json?limit=10&offset=0", {}, @rivers_from_1
     end
   end
 

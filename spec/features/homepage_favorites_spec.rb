@@ -20,9 +20,16 @@ describe "favoriting on homepage" do
        :run_id => 1}
     ]
     }.to_json
+    river_data = 10.times.map do |i|
+      {"name" => "Brown #{i+1}",
+       "id" => i+1}
+    end
+    @rivers_from_1 = {"rivers" => river_data}.to_json
+
     ActiveResource::HttpMock.respond_to do |mock|
       mock.get "/api/v1/rivers.json", {}, @rivers
       mock.get "/api/v1/gauges.json", {}, @gauges
+      mock.get "/api/v1/rivers.json?limit=10&offset=0", {}, @rivers_from_1
     end
   end
 
@@ -42,9 +49,9 @@ describe "favoriting on homepage" do
 
       it "clicking on favorite adds the river to favorites" do
         visit '/'
-        find('.river-favorite').first(:link, "Favorite").click
+        first('.river-favorite > a').click
         within('.user-favorites') do
-          expect(page).to have_content('Saco')
+          expect(page).to have_content('Brown 1')
         end
       end
     end
@@ -58,8 +65,8 @@ describe "favoriting on homepage" do
 
     it" clicking on X removes the favorite" do
       visit '/'
-      find('.river-favorite').first(:link, "Favorite").click
-      find('.remove-favorite').first(:button, 'X').click
+      first('.river-favorite > a').click
+      first('.remove-favorite > a').click
       within('.user-favorites') do
         expect(page).to_not have_content('Saco')
       end

@@ -8,9 +8,10 @@
     %h2{:class => 'user-favorites'}
       - if current_user
         Your Favorite Rivers
-    %ul.favorite-rivers= render collection: @favorite_rivers, partial: 'rivers/favorite_river'
+      %ul.favorite-rivers= render collection: @favorite_rivers, partial: 'rivers/favorite_river'
 
     %h2
       Rivers Near You
+      = link_to 'Next', root_path(:offset => @next_offset)
 
     %ul.rivers= render collection: @rivers, partial: "rivers/rivers"
