@@ -14,5 +14,5 @@
       Rivers Near You
 
     %ul.rivers= render collection: @rivers, partial: "rivers/rivers"
-    %br
+    = link_to 'Prev', root_path(:offset => @prev_offset)
     = link_to 'Next', root_path(:offset => @next_offset)
