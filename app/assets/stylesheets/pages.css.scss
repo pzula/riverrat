@@ -16,14 +16,26 @@
   float:left;
 }
 
+h2.user-favorites {
+  margin-top: 0;
+}
+
 #sidebar {
-  width: 28%;
+  width: 27%;
   float:right;
   height:100%;
   padding-left:20px;
+  padding-right: 17px;
   overflow-x: auto;
   overflow-y: auto;
-  margin-top: 35px;
+  margin-top: 50px;
+}
+
+#sidebar-wrapper {
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: 25px;
+  background-color: rgba(255,255,255,.8);
 }
 
   ul.rivers, ul.favorite-rivers {

@@ -5,14 +5,16 @@
   %div{:class => "map-body"}
     #map{ data: { gauges: @gauges } }
   %div{:id => "sidebar"}
-    %h2{:class => 'user-favorites'}
-      - if current_user
-        Your Favorite Rivers
-    %ul.favorite-rivers= render collection: @favorite_rivers, partial: 'rivers/favorite_river'
+    %div{:id => "sidebar-wrapper"}
+      %h2{:class => 'user-favorites'}
+        - if current_user
+          Your Favorite Rivers
+      %ul.favorite-rivers= render collection: @favorite_rivers, partial: 'rivers/favorite_river'
 
-    %h2
-      Rivers Near You
+      %h2
+        Rivers Near You
 
-    %ul.rivers= render collection: @rivers, partial: "rivers/rivers"
-    = link_to 'Prev', root_path(:offset => @prev_offset)
-    = link_to 'Next', root_path(:offset => @next_offset)
+      %ul.rivers= render collection: @rivers, partial: "rivers/rivers"
+      = link_to 'Prev', root_path(:offset => @prev_offset)
+      %span &#124;
+      = link_to 'Next', root_path(:offset => @next_offset)
