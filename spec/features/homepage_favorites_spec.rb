@@ -50,7 +50,7 @@ describe "favoriting on homepage" do
       it "clicking on favorite adds the river to favorites" do
         visit '/'
         first('.river-favorite > a').click
-        within('.favorite-rivers') do
+        within('.rivers') do
           expect(page).to have_content('Brown 1')
         end
       end
