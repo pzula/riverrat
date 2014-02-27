@@ -1,12 +1,8 @@
-<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+%div.river-show-wrapper
+  %h1
+    = @river.name
 
-%h1
-  = @river.name
+  %ul.runs-listing
+    = render collection: @runs, partial: 'run'
 
-%ul
-  = render collection: @runs, partial: 'run'
 
-%div{:class => "wrapper"}
-  %div{:class => "map-body"}
-    #map{ data: { gauges: @gauges } }

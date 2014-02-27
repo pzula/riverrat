@@ -48,6 +48,24 @@ header.button {
 .inner-wrapper {
   width:70%;
   margin:100px auto 0 auto;
+  height:100%;
+  margin-bottom:10px;
+}
+
+.river-show-wrapper {
+  width:70%;
+  height:auto;
+  margin:200px auto 10px auto;
+}
+
+ul.runs-listing {
+  list-style:none;
+  padding:0;
+  li {
+    display:block;
+    margin:10px 0;
+    padding:0;
+  }
 }
 
 form {
