@@ -1,3 +1,12 @@
 %div.run-show-wrapper
   %h1
-    = @run.inspect
+    = @run.name
+  %ul
+    %li
+      %p Difficulty:  #{@run.difficulty}
+    %li
+      %p Flow Range: #{@run.min_flow} to #{@run.max_flow} cfs
+    %li
+      %p Length: #{@run.length} miles
+    %li
+      %p Gradient: #{@run.gradient} feet per mile
