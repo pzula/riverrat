@@ -2,13 +2,6 @@ require 'spec_helper'
 
 describe "Homepage" do
   before :each do
-    #@rivers = {"rivers" => [
-    #                      {"name" => "Black River",
-    #                       "id" => 1},
-    #                      {"name" => "Hawk River",
-    #                       "id" => 2}
-    #                      ]
-    #          }.to_json
     river_data = 10.times.map do |i|
       {"name" => "Brown #{i+1}",
        "id" => i+1}
