@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+body {
+  margin: 0;
+  background: image-url('river-rocks.jpg');
+}
+
 header {
   overflow:hidden;
   background: image-url('river-rat-waves.png') repeat-x;
